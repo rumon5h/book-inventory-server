@@ -1,4 +1,4 @@
-const { getBooksService } = require("../services/books.service")
+const { getBooksService, createNewBookService } = require("../services/books.service")
 
 
 exports.getBooks = async (req, res) => {
@@ -20,6 +20,22 @@ exports.getBooks = async (req, res) => {
     }
 }
 
+exports.createNewBook = async(req, res) => {
+    try {
+        const book = req.body;
 
-
-
+        const result = await createNewBookService(book);
+        console.log(result);
+        res.status(200).json({
+            status: 'success',
+            message: 'Successfully created the book.',
+            data: result
+        })
+    } catch (error) {
+        res.status(400).json({
+            status: 'Failed',
+            message: 'Failed to create a new book',
+            error: error.message
+        })
+    }
+}
