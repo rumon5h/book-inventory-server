@@ -5,3 +5,9 @@ exports.getBooksService =async () => {
     
     return books;
 }
+
+exports.createNewBookService = async (book) => {
+    const result = await Books.create(book);
+    console.log(result);
+    return result;
+}
