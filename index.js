@@ -32,7 +32,7 @@ async function run() {
 run().catch(console.dir());
 
 app.get("/", (req, res) => {
-  res.send("Hello from express");
+  res.send("Hello from book inventory.");
 });
 
 app.listen(port, () => {
