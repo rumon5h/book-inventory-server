@@ -8,6 +8,12 @@ exports.getBooksService =async () => {
 
 exports.createNewBookService = async (book) => {
     const result = await Books.create(book);
-    console.log(result);
+
     return result;
+}
+
+exports.getBookByIdService = async (id) => {
+    const book = await Books.findOne({_id: id});
+
+    return book;
 }
